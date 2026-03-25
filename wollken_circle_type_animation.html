@@ -1,0 +1,263 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body {
+  display: flex;
+}
+#ww{
+  width:100%;height:560px;position:relative;
+  font-family:'Alte Haas Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  cursor:pointer;overflow:hidden;
+    margin: auto;
+}
+#wph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;
+  gap:22px;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+  transform: translate(40%, -7%) !important;
+}
+.tl{display:flex;align-items:baseline;gap:16px;opacity:0;transition:opacity 0.12s ease}
+.tl.vis{opacity:1}
+.tnum{
+  font-size:9px;letter-spacing:0.14em;
+  color:#ddd;
+  min-width:20px;text-align:right;flex-shrink:0;
+  font-variant-numeric:tabular-nums;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.ttxt{
+  font-size:15px;letter-spacing:0.04em;
+  color:var(--color-text-primary);
+  line-height:1;
+}
+.tcur{
+  display:inline-block;width:1.5px;height:13px;
+  background:var(--color-text-primary);
+  vertical-align:middle;margin-left:2px;
+  animation:bl 0.8s step-end infinite;
+}
+@keyframes bl{50%{opacity:0}}
+
+#wcirc{
+  position:absolute;inset:0;opacity:0;
+  pointer-events:none;
+  transition:opacity 0.8s ease;
+}
+.cstroke{
+  fill:none;stroke:#898989;stroke-width:0.2;
+}
+.ctxt{
+  font-family:'Alte Haas Grotesk','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size:9px;letter-spacing:2.2px;
+  fill:#898989;
+  opacity:0;transition:opacity 0.8s ease;
+}
+#whint{
+  position:absolute;bottom:14px;right:18px;
+  font-size:9px;letter-spacing:0.14em;
+  color:var(--color-text-tertiary);
+  opacity:0;transition:opacity 0.5s ease;
+  text-transform:uppercase;pointer-events:none;
+}
+svg#wmark {    position: absolute;
+    top: 47%;
+    right: 50%;
+    transform: translate(50%, -50%);
+        width: 40%;
+    height: auto;
+    transition: 0.5 all ease;}
+</style>
+
+<div id="ww" title="click to replay">
+
+  <div id="wph">
+    <div class="tl" id="tl0"><span class="tnum">01</span><span class="ttxt"></span><span class="tcur"></span></div>
+    <div class="tl" id="tl1"><span class="tnum">02</span><span class="ttxt"></span><span class="tcur"></span></div>
+    <div class="tl" id="tl2"><span class="tnum">03</span><span class="ttxt"></span><span class="tcur"></span></div>
+    <div class="tl" id="tl3"><span class="tnum">04</span><span class="ttxt"></span><span class="tcur"></span></div>
+    <div class="tl" id="tl4"><span class="tnum">05</span><span class="ttxt"></span><span class="tcur"></span></div>
+    <div class="tl" id="tl5"><span class="tnum">06</span><span class="ttxt"></span><span class="tcur"></span></div>
+  </div>
+
+  <div id="wcirc">
+    <svg width="100%" height="100%" viewBox="0 0 760 540" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <!-- Clockwise circle paths for textPath — start at leftmost point -->
+        <!-- cx=133 cy=269 r=131 -->
+        <path id="tp0" d="M2,269 a131,131 0 1,1 262,0 a131,131 0 1,1 -262,0"/>
+        <!-- cx=630 cy=274 r=128 -->
+        <path id="tp1" d="M502,274 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/>
+        <!-- cx=375 cy=219 r=178 — center large -->
+        <path id="tp2" d="M197,219 a178,178 0 1,1 356,0 a178,178 0 1,1 -356,0"/>
+        <!-- cx=557 cy=171 r=139 -->
+        <path id="tp3" d="M418,171 a139,139 0 1,1 278,0 a139,139 0 1,1 -278,0"/>
+        <!-- cx=447 cy=301 r=144 -->
+        <path id="tp4" d="M303,301 a144,144 0 1,1 288,0 a144,144 0 1,1 -288,0"/>
+        <!-- cx=242 cy=332 r=144 -->
+        <path id="tp5" d="M98,332 a144,144 0 1,1 288,0 a144,144 0 1,1 -288,0"/>
+      </defs>
+
+      <!-- Visible circle strokes (animated draw) -->
+      <circle class="cstroke" id="cs0" cx="133" cy="269" r="131" stroke-dasharray="823" stroke-dashoffset="823"/>
+      <circle class="cstroke" id="cs1" cx="630" cy="274" r="128" stroke-dasharray="804" stroke-dashoffset="804"/>
+      <circle class="cstroke" id="cs2" cx="375" cy="219" r="178" stroke-dasharray="1119" stroke-dashoffset="1119"/>
+      <circle class="cstroke" id="cs3" cx="557" cy="171" r="139" stroke-dasharray="873" stroke-dashoffset="873"/>
+      <circle class="cstroke" id="cs4" cx="447" cy="301" r="144" stroke-dasharray="905" stroke-dashoffset="905"/>
+      <circle class="cstroke" id="cs5" cx="242" cy="332" r="144" stroke-dasharray="905" stroke-dashoffset="905"/>
+
+      <!-- Subtle WOLLKEN wordmark at visual center -->
+    </svg>
+
+
+    <svg id="wmark" opacity="0"
+        style="transition: opacity 1s ease;" width="256" height="40" viewBox="0 0 256 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M31.2447 17.2937C28.621 17.2937 28.037 17.9737 27.1731 20.9093L21.6137 39.9951H21.2537L15.5983 20.5014L9.99094 39.9951H9.63098L4.07156 20.9093C3.21566 17.9257 2.62372 17.2937 0 17.2937V16.9338H7.91116V17.2937C5.28744 17.2937 5.19945 17.8777 6.10335 20.9093L10.5349 36.0116L15.2864 19.4135C14.7424 17.6937 14.2465 17.2857 12.1187 17.2857V16.9258H20.0299V17.2857C17.4062 17.2857 16.9102 17.8697 17.7661 20.9013L22.1496 36.0036L26.5332 20.9013C27.3891 17.9577 26.8931 17.2857 24.2694 17.2857V16.9258H31.2367V17.2857L31.2447 17.2937Z" fill="black"/>
+    <path d="M39.8361 16.4785C44.6276 16.4785 48.8831 20.726 48.8831 28.2372C48.8831 35.7483 44.6356 39.9958 39.8361 39.9958C35.0366 39.9958 30.7891 35.7483 30.7891 28.2372C30.7891 20.726 35.0366 16.4785 39.8361 16.4785ZM39.8361 39.4039C44.4916 39.4039 46.9393 34.1085 46.9393 28.2372C46.9393 22.3658 44.4996 17.0704 39.8361 17.0704C35.1726 17.0704 32.7329 22.3578 32.7329 28.2372C32.7329 34.1165 35.1726 39.4039 39.8361 39.4039Z" fill="black"/>
+    <path d="M49.873 39.1798C52.4968 39.1798 53.0407 38.4998 53.0407 35.5642V11.279C53.0407 8.33529 51.3209 7.88734 49.873 7.88734V7.52738C51.3689 7.52738 54.6245 6.94344 54.6245 5.63159H54.9845V35.5642C54.9845 38.5078 55.5285 39.1798 58.1522 39.1798V39.5397H49.873V39.1798Z" fill="black"/>
+    <path d="M59.2402 39.1798C61.864 39.1798 62.4079 38.4998 62.4079 35.5642V11.279C62.4079 8.33529 60.6881 7.88734 59.2402 7.88734V7.52738C60.7361 7.52738 63.9917 6.94344 63.9917 5.63159H64.3517V35.5642C64.3517 38.5078 64.8956 39.1798 67.5194 39.1798V39.5397H59.2482V39.1798H59.2402Z" fill="black"/>
+    <path d="M86.8698 17.2943C84.246 17.2943 82.7102 18.5181 81.0784 20.9099L76.7348 26.8372L82.8382 35.5642C84.51 37.9639 85.8699 39.1798 88.4936 39.1798V39.5397H79.7665V39.1798C82.3903 39.1798 82.0703 37.8679 80.4465 35.5642L75.519 28.509L73.6232 31.1327V35.5642C73.6232 38.5078 74.1671 39.1798 76.7908 39.1798V39.5397H68.5117V39.1798C71.1354 39.1798 71.6794 38.4998 71.6794 35.5642V11.279C71.6794 8.33529 69.9596 7.88734 68.5117 7.88734V7.52738C70.0076 7.52738 73.2632 6.94344 73.2632 5.63159H73.6232V30.1408L80.2705 20.9178C81.9423 18.5181 82.3503 17.3023 79.7265 17.3023V16.9423H86.8698V17.3023V17.2943Z" fill="black"/>
+    <path d="M103.466 33.6205C102.746 37.3321 100.619 39.9958 96.547 39.9958C91.7555 39.9958 87.5 35.7483 87.5 28.2372C87.5 20.726 91.6116 16.4785 96.499 16.4785C100.299 16.4785 103.554 19.1022 102.826 22.9418C102.146 26.6933 98.8508 27.8692 95.6351 27.8692C93.1474 27.8692 90.7077 27.1493 89.5318 26.3734C89.4838 26.9573 89.4438 27.5972 89.4438 28.2292C89.4438 34.1085 91.8835 39.3959 96.547 39.3959C100.395 39.3959 102.338 36.5482 102.882 33.6046H103.466V33.6205ZM95.1872 27.1493C97.7229 27.1493 100.211 26.1974 100.931 22.9418C101.61 19.8701 99.9787 17.0624 96.499 17.0624C92.4275 17.0624 90.1237 20.95 89.5798 25.7894C90.7557 26.4214 93.0194 27.1493 95.1872 27.1493Z" fill="black"/>
+    <path d="M105.365 39.1795C107.989 39.1795 108.533 38.4996 108.533 35.5639V22.5894C108.533 19.6457 106.813 19.1978 105.365 19.1978V18.8378C106.861 18.8378 110.117 18.2459 110.117 16.942H110.477V20.3336C111.837 18.4379 113.781 16.4861 116.532 16.4861C120.244 16.4861 123.132 18.8378 123.132 24.2612V35.5639C123.132 38.5076 123.675 39.1795 126.299 39.1795V39.5394H118.02V39.1795C120.644 39.1795 121.188 38.4996 121.188 35.5639V25.1171C121.188 19.2858 118.972 17.294 116.076 17.294C113.677 17.294 111.869 19.2378 110.469 21.2295V35.5639C110.469 38.5076 111.013 39.1795 113.637 39.1795V39.5394H105.357V39.1795H105.365Z" fill="black"/>
+    <path d="M144.606 16.4785C147.182 16.4785 148.854 17.4704 150.621 19.0142L150.981 25.3495H150.621C150.173 19.8301 147.774 17.0704 144.606 17.0704C142.118 17.0704 139.991 18.4703 139.991 21.23C139.991 27.6932 151.613 27.1573 151.613 34.2045C151.613 38.276 147.902 39.9958 145.054 39.9958C142.478 39.9958 139.671 39.0039 137.911 37.4601L137.551 31.1328H137.911C138.367 36.6522 141.894 39.4119 145.054 39.4119C147.542 39.4119 149.845 38.012 149.845 35.1164C149.845 28.7891 138.223 29.325 138.223 21.6859C138.223 18.2063 141.75 16.4865 144.598 16.4865L144.606 16.4785Z" fill="black"/>
+    <path d="M156.095 33.3004V20.6858C156.095 17.7422 154.376 17.2942 152.928 17.2942V16.9343C153.784 16.9343 155.503 17.2062 156.591 15.8464C157.311 14.9425 157.679 12.9507 157.679 10.511H158.039V16.9343H161.975V17.5262H158.039V30.8207C158.039 36.0201 158.535 39.4117 160.527 39.4117C162.335 39.4117 163.647 37.9638 163.871 34.2603H164.455C164.183 38.3718 162.423 40.0036 160.343 40.0036C157.807 40.0036 156.095 38.4678 156.095 33.3084V33.3004Z" fill="black"/>
+    <path d="M186.852 17.294C184.228 17.294 183.684 17.974 183.684 20.9096V33.8841C183.684 36.8278 185.404 37.2758 186.852 37.2758V37.6357C185.356 37.6357 182.1 38.2197 182.1 39.5315H181.74V36.1399C180.381 38.0357 178.437 39.9874 175.677 39.9874C171.966 39.9874 169.078 37.6357 169.078 32.2123V20.9096C169.078 17.966 168.534 17.294 165.91 17.294V16.9341H174.189V17.294C171.566 17.294 171.022 17.974 171.022 20.9096V31.3564C171.022 37.1878 173.237 39.1795 176.133 39.1795C178.533 39.1795 180.341 37.2358 181.74 35.244V20.9096C181.74 17.966 181.197 17.294 178.573 17.294V16.9341H186.852V17.294Z" fill="black"/>
+    <path d="M202.77 39.9957H202.41V35.6122C201.234 38.4598 199.202 39.9957 196.579 39.9957C191.875 39.9957 187.852 35.7481 187.852 28.237C187.852 20.7259 191.875 16.4784 196.579 16.4784C199.202 16.4784 201.234 18.0142 202.41 20.8619V11.279C202.41 8.33529 200.69 7.88734 199.242 7.88734V7.52738C200.738 7.52738 203.994 6.94344 203.994 5.63159H204.354V34.6603C204.354 37.196 204.762 38.0999 205.978 38.0999C206.434 38.0999 206.93 38.0119 207.513 37.8279V38.1879L202.762 39.9957H202.77ZM196.571 39.4037C199.514 39.4037 201.458 37.1 202.402 33.5724V22.9016C201.45 19.374 199.506 17.0703 196.571 17.0703C192.003 17.0703 189.787 22.3577 189.787 28.237C189.787 34.1163 192.003 39.4037 196.571 39.4037Z" fill="black"/>
+    <path d="M208.602 39.1798C211.225 39.1798 211.769 38.4998 211.769 35.5642V22.5897C211.769 19.646 210.049 19.1981 208.602 19.1981V18.8381C210.097 18.8381 213.353 18.2462 213.353 16.9423H213.713V35.5722C213.713 38.5158 214.257 39.1878 216.881 39.1878V39.5477H208.602V39.1878V39.1798ZM212.713 7.4314C213.801 7.4314 214.521 8.15132 214.521 9.2392C214.521 10.3271 213.801 11.047 212.713 11.047C211.625 11.047 210.905 10.3271 210.905 9.2392C210.905 8.15132 211.625 7.4314 212.713 7.4314Z" fill="black"/>
+    <path d="M226.918 16.4785C231.71 16.4785 235.965 20.726 235.965 28.2372C235.965 35.7483 231.718 39.9958 226.918 39.9958C222.119 39.9958 217.871 35.7483 217.871 28.2372C217.871 20.726 222.119 16.4785 226.918 16.4785ZM226.918 39.4039C231.574 39.4039 234.021 34.1085 234.021 28.2372C234.021 22.3658 231.582 17.0704 226.918 17.0704C222.255 17.0704 219.815 22.3578 219.815 28.2372C219.815 34.1165 222.255 39.4039 226.918 39.4039Z" fill="black"/>
+    <path d="M240.693 13.1427C241.653 13.1427 241.869 12.8948 242.189 11.8149L244.229 4.81567H244.365L246.437 11.9669L248.493 4.81567H248.629L250.668 11.8149C250.98 12.9107 251.196 13.1427 252.164 13.1427V13.2787H249.26V13.1427C250.22 13.1427 250.252 12.9267 249.924 11.8149L248.301 6.2715L246.557 12.3588C246.757 12.9907 246.941 13.1347 247.717 13.1347V13.2707H244.813V13.1347C245.773 13.1347 245.957 12.9187 245.645 11.8069L244.037 6.26351L242.429 11.8069C242.117 12.8867 242.293 13.1347 243.261 13.1347V13.2707H240.709V13.1347L240.693 13.1427Z" fill="black"/>
+    <path d="M237.357 9.04696C237.357 4.25551 240.629 0 246.404 0C252.18 0 255.451 4.24751 255.451 9.04696C255.451 13.8464 252.18 18.0939 246.404 18.0939C240.629 18.0939 237.357 13.8464 237.357 9.04696ZM254.996 9.04696C254.996 3.40761 250.924 0.455954 246.404 0.455954C241.885 0.455954 237.813 3.40761 237.813 9.04696C237.813 14.6863 241.885 17.638 246.404 17.638C250.924 17.638 254.996 14.6863 254.996 9.04696Z" fill="black"/>
+    </svg>
+
+  </div>
+
+  <div id="whint">↺ replay</div>
+</div>
+
+<script>
+const LINES = [
+  'From the Land, Not the Factory',
+  'Wool as It Was Meant to Be',
+  'Chic Without Noise',
+  'Sustainability Is Not a Feature',
+  'Small Is the Point',
+  'Wear It Softly, Keep It Forever',
+];
+const CIRCS = [823,804,1119,873,905,905];
+const sleep = ms => new Promise(r => setTimeout(r,ms));
+
+async function type(el, txt, spd){
+  for(let i=0;i<=txt.length;i++){
+    el.textContent = txt.slice(0,i);
+    await sleep(spd);
+  }
+}
+
+function moveToCircles(){
+  const POS=[
+    [-220,0],
+    [220,0],
+    [0,-120],
+    [140,-170],
+    [90,130],
+    [-140,150]
+  ];
+
+  document.querySelectorAll('.tl').forEach((el,i)=>{
+    el.style.transition = 'transform 0.8s cubic-bezier(0.4,0,0.2,1)';
+    el.style.transform = `translate(${POS[i][0]}px,${POS[i][1]}px) scale(0.65)`;
+  });
+}
+
+async function run(){
+  // reset type phase
+  document.querySelectorAll('.tl').forEach(l=>{
+    l.classList.remove('vis');
+    l.querySelector('.ttxt').textContent='';
+    const c=l.querySelector('.tcur');
+    if(c){c.style.display='inline-block';}
+  });
+  const wph=document.getElementById('wph');
+  wph.style.transition='none';
+  wph.style.opacity='1';
+  wph.style.transform='scale(1)';
+
+  // reset circles
+  const wc=document.getElementById('wcirc');
+  wc.style.transition='none';
+  wc.style.opacity='0';
+  CIRCS.forEach((_,i)=>{
+    const el=document.getElementById('cs'+i);
+    el.style.transition='none';
+    el.style.strokeDashoffset=CIRCS[i];
+  });
+  document.querySelectorAll('.ctxt').forEach(t=>{
+    t.style.transition='none';
+    t.style.opacity='0';
+  });
+  const wm=document.getElementById('wmark');
+  wm.style.transition='none';
+  wm.style.opacity='0';
+  document.getElementById('whint').style.opacity='0';
+
+  await sleep(300);
+
+  // type each line
+  const speeds=[26,26,26,26,26,26];
+  const pauses=[180,180,180,180,180,0];
+  for(let i=0;i<LINES.length;i++){
+    const line=document.getElementById('tl'+i);
+    const txt=line.querySelector('.ttxt');
+    const cur=line.querySelector('.tcur');
+    line.classList.add('vis');
+    await type(txt,LINES[i],speeds[i]);
+    if(cur)cur.style.display='none';
+    await sleep(pauses[i]);
+  }
+
+  await sleep(1300);
+
+  // move text into circle positions
+  moveToCircles();
+
+  wph.style.transition='opacity 0.55s ease';
+  wph.style.opacity='0.5';
+
+  await sleep(650);
+
+  // show circle phase
+  wc.style.transition='opacity 0.7s ease';
+  wc.style.opacity='1';
+  await sleep(100);
+
+  // draw circles staggered
+  CIRCS.forEach((_,i)=>{
+    const el=document.getElementById('cs'+i);
+    setTimeout(()=>{
+      el.style.transition=`stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1)`;
+      el.style.strokeDashoffset='0';
+    }, i*150);
+  });
+
+  // wordmark appears last
+  setTimeout(()=>{
+    wm.style.transition='opacity 3s ease';
+    wph.style.transition='opacity 3s ease';
+    wm.style.opacity='1';
+    wph.style.opacity='0';
+    wph.style.opacity='0';
+    el.style.opacity='0.5';
+  }, 2200);
+
+  // replay hint
+  await sleep(4000);
+  document.getElementById('whint').style.opacity='1';
+}
+
+document.getElementById('ww').addEventListener('click', run);
+run();
+</script>
